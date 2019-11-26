@@ -17,11 +17,10 @@ Concatenate to the word embedding input to the chunker RNN an input vector that 
 And here is the code for this part: v1v2v3_list = []# Step 2.1 prepare additional dimensions
 for w in sentence:
 
-# print(w)
 v1 = torch.zeros(100)
 v2 = torch.zeros(100)
 v3 = torch.zeros(100)
-# if w not in v1v2v3_list.keys():
+###### if w not in v1v2v3_list.keys():
 v1[string.printable.index(w[0])] = 1
 v3[string.printable.index(w[-1])] = 1
   for char in w:
