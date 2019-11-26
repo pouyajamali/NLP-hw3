@@ -32,7 +32,7 @@ v3 = torch.zeros(100)
   
   v3[string.printable.index(w[-1])] = 1
   
-  for char in w:
+  for char in w:        
      v2[string.printable.index(char)] += 1
      
   v1v2v3_list.append(torch.cat((v1, v2, v3)))
