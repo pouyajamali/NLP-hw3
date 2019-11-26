@@ -14,18 +14,23 @@ Based on baseline given in the instruction our steps to solve this problems are:
 
 Concatenate to the word embedding input to the chunker RNN an input vector that is the character level             representation of the word.
 
-And here is the code for this part: v1v2v3_list = []# Step 2.1 prepare additional dimensions
-for w in sentence:
+And here is the code for this part: 
+
+v1v2v3_list = []
+
+#Step 2.1 prepare additional dimensions for w in sentence:
 
 v1 = torch.zeros(100)
 v2 = torch.zeros(100)
 v3 = torch.zeros(100)
+
 ###### if w not in v1v2v3_list.keys():
-v1[string.printable.index(w[0])] = 1
-v3[string.printable.index(w[-1])] = 1
+
+  v1[string.printable.index(w[0])] = 1
+  v3[string.printable.index(w[-1])] = 1
   for char in w:
      v2[string.printable.index(char)] += 1
-v1v2v3_list.append(torch.cat((v1, v2, v3)))
+  v1v2v3_list.append(torch.cat((v1, v2, v3)))
 V = torch.stack(v1v2v3_list) # len_stentence * 300
 return V
 
