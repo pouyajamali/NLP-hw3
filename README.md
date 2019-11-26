@@ -21,16 +21,22 @@ v1v2v3_list = []
 #Step 2.1 prepare additional dimensions for w in sentence:
 
 v1 = torch.zeros(100)
+
 v2 = torch.zeros(100)
+
 v3 = torch.zeros(100)
 
 ###### if w not in v1v2v3_list.keys():
 
   v1[string.printable.index(w[0])] = 1
+  
   v3[string.printable.index(w[-1])] = 1
+  
   for char in w:
      v2[string.printable.index(char)] += 1
+     
   v1v2v3_list.append(torch.cat((v1, v2, v3)))
+  
 V = torch.stack(v1v2v3_list) # len_stentence * 300
 return V
 
